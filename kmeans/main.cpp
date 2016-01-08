@@ -166,18 +166,15 @@ int main()
     for (int i = 0;i < k; i++)
     {
         center[i] = i;
+    }
+    int co = 0;
+    while(!k_means(num,k,samples,center,ty));
+    cout<<"Centers:"<<endl;
+    for(int i =0;i<k;i++)
+    {
         cout<<center[i]<<' ';
     }
     cout<<endl;
-
-    while(!k_means(num,k,samples,center,ty))
-    {
-        for(int i =0;i<k;i++)
-        {
-            cout<<center[i]<<' ';
-        }
-        cout<<endl;
-    }
     for(int i =0;i<k;i++)
     {
         cout<<"Type "<<i+1<<":";
@@ -188,23 +185,20 @@ int main()
         }
         cout<<endl;
     }
-
+    cout<<endl;
     int *center2 = new int[k];
     for (int i = 0;i < k; i++)
     {
         center2[i] = k-i;
+    }
+
+    while(!k_medoids(num,k,samples,center2,ty));
+    cout<<"Centers:"<<endl;
+    for(int i =0;i<k;i++)
+    {
         cout<<samples[center2[i]]<<' ';
     }
     cout<<endl;
-
-    while(!k_medoids(num,k,samples,center2,ty))
-    {
-        for(int i =0;i<k;i++)
-        {
-            cout<<samples[center2[i]]<<' ';
-        }
-        cout<<endl;
-    }
     for(int i =0;i<k;i++)
     {
         cout<<"Type "<<i+1<<":";
