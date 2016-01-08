@@ -23,7 +23,7 @@ bool k_means(int num, int k, float *samples, float *center, int *type)
 {
     for (int i=0;i<num;i++)
     {
-        int min_dis = MAX_NUM;
+        float min_dis = MAX_NUM;
         for (int j = 0;j<k;j++)
         {
             float tmp_dis=abs(samples[i]-center[j]);
@@ -82,7 +82,7 @@ bool k_medoids(int num, int k, float *samples, int *center, int *type)
 {
     for (int i=0;i<num;i++)
     {
-        int min_dis = MAX_NUM;
+        float min_dis = MAX_NUM;
         for (int j = 0;j<k;j++)
         {
             float tmp_dis=abs(samples[i]-samples[center[j]]);
@@ -120,7 +120,6 @@ bool k_medoids(int num, int k, float *samples, int *center, int *type)
             new_center[type[i]]=i;
         }
     }
-
     bool flag = false;
     for(int i=0;i<k;i++)
     {

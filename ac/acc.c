@@ -274,7 +274,7 @@ int print_str(p_node c, int index)
 		i++;
 	}
 	loc = index - i;
-	printf("At %d: ", loc);
+	printf("%d: ", loc);
 	while (i)
 	{
 		printf("%c", stack[i-1]);
@@ -337,17 +337,22 @@ int main(int argc, char *argv[])
 	node_get_count(root, &i);
 	node_init_status(root, status, &status_count);
 	ac_create();
-	//for (i = 0; i < status_count; i++)
-	//{
-	// printf("%d ", ac_base[i]);
-	//}
-	//printf("base\n");
-	//for (i = 0; i < status_count; i++)
-	//{
-	// printf("%d ", ac_next[i]);
-	//}
-	//printf("next\n");
-	printf("Please input txt:");
+	printf("base:");
+	for (i = 0; i < status_count; i++)
+	{
+        printf("%d ", ac_base[i]);
+	}
+	printf("\nnext:");
+	for (i = 0; i < status_count; i++)
+	{
+        printf("%d ", ac_next[i]);
+	}
+	printf("\ncheck:");
+	for (i = 0; i < status_count; i++)
+	{
+        printf("%d ", ac_check[i]);
+	}
+	printf("\nPlease input txt:");
 	scanf("%s", tmp_str);
 	run(tmp_str);
 	return 0;
